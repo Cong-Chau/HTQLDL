@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clear {
+  /* Giải quyết vấn đề con là float thì cha k ôm đc con */
+  clear: both;
+}
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  background-image: linear-gradient(to right, #ff914d, #ff3131);
+  padding: 8px;
+  height: 60px;
+  width: 100%;
+  z-index: 1;
+}
+
+#header ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+#header li .name-web {
+  font-size: 25px;
+  color: white;
+}
+#header li .account {
+  color: black;
+  font-size: 15px;
+}
+#header .logout {
+  color: white;
+  font-size: 15px;
+  text-decoration: underline;
+}
+#header .right {
+  margin-left: auto;
+}
+#container {
+  position: relative;
+  margin-top: 46px;
+  display: flex;
+  height: 100%;
+}
+#container #sidebar {
+  width: 15%;
+  border-right: 1px solid rgb(185, 181, 181);
+}
+#sidebar i {
+  margin-right: 5px;
+}
+#container #sidebar li {
+  margin: 10% 0 10% 0px;
+  font-size: 20px;
+  padding: 15px 10px;
+}
+#container #sidebar li:first-child {
+  background-color: #ff914d;
+}
+#container #sidebar li:hover {
+  background-color: #ff914d;
+}
+#container #content {
+  width: 85%;
+}
+#container #content .home-page {
+  width: 100%;
+  height: 15%;
+  font-size: 45px;
+  color: #ff914d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+}
+#container #content .picture {
+  width: 100%; /* Ảnh sẽ chiếm toàn bộ chiều rộng của div */
+  height: 85%; /* Chiều cao tự động theo tỷ lệ của ảnh */
+
+  background-image: url("https://vudigital.co/wp-content/uploads/2023/09/dai-ly-phan-phoi-la-gi-5-loai-hinh-dai-ly-pho-bien.webp");
+  background-size: cover; /* Đảm bảo ảnh phủ đầy div */
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hệ thống quản lý đại lý</title>
+    <link rel="stylesheet" href="./assets/CSS/index.css" />
+  </head>
+  <body>
+    <div id="heading">
+      <h1 class="title">Hệ thống quản lý đại lý</h1>
+    </div>
+    <div id="body-form">
+      <!-- Form trang đăng nhập -->
+      <div class="login-form">
+        <div class="form-header">
+          <h1>Đăng nhập</h1>
+          <p>Vui lòng nhập tên tài khoản và mật khẩu</p>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="Tên đăng nhập"
+            class="input-info name-account"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Mật khẩu"
+            class="input-info pass-account"
+          />
+        </div>
+        <a href="#" class="link-text forget-password">Quên mật khẩu</a>
+        <button class="btn login">Đăng nhập</button>
+        <button class="btn register">Đăng ký</button>
+      </div>
+
+      <!-- Form trang đăng ký -->
+      <div class="register-form hide-form">
+        <div class="form-header">
+          <h1>Đăng ký</h1>
+          <p>Vui lòng nhập tên tài khoản và mật khẩu và xác nhận mật khẩu</p>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="Tên đăng nhập"
+            class="input-info name-account"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Mật khẩu"
+            class="input-info pass-account"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Xác nhận mật khẩu"
+            class="input-info confirm-pass"
+          />
+        </div>
+        <button class="btn register">Đăng ký</button>
+        <a href="#" class="link-text have-account">Đã có tài khoản</a>
+      </div>
+      <!-- Form trang quên mật khẩu -->
+      <div class="forget-form hide-form">
+        <div class="form-header">
+          <h1>Quên mật khẩu</h1>
+          <p>Vui lòng nhập tên tài khoản</p>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="Tên đăng nhập"
+            class="input-info name-account"
+          />
+        </div>
+        <button class="btn find-account">Tìm tài khoản</button>
+        <a href="#" class="link-text have-account">Đã có tài khoản</a>
+      </div>
+      <!-- Form trang reset mật khẩu -->
+      <div class="resetpass-form hide-form">
+        <div class="form-header">
+          <h1>Cài lại mật khẩu</h1>
+          <p>Vui lòng nhập mật khẩu mới và xác nhận</p>
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Mật khẩu mới "
+            class="input-info new-password"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Xác nhận mật khẩu"
+            class="input-info confirm-new-password"
+          />
+        </div>
+        <button class="btn save-pass">Lưu mật khẩu</button>
+        <a href="#" class="link-text have-account">Đã có tài khoản</a>
+      </div>
+    </div>
+    <script src="./assets/JS/loginform.js"></script>
+  </body>
+</html>
