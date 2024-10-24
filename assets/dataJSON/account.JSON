@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nameAccount": "congchau",
+    "password": "12345"
+  },
+  {
+    "id": 2,
+    "nameAccount": "ngoccuong",
+    "password": "54321"
+  },
+  {
+    "id": 3,
+    "nameAccount": "baduy",
+    "password": "67890"
+  },
+  {
+    "id": 4,
+    "nameAccount": "vietcong",
+    "password": "09876"
+  }
+]

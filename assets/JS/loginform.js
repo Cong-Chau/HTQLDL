@@ -16,12 +16,73 @@ function registerButton() {
       // ----btn đăng ký của form đăng ký
       if (parentClass === "register-form") {
         // Thao tác lưu tài khoản mới đã được tạo
-        // ...
+        // Kiểm tra tên tài khoản đã tồn tại hay chưa
+        fetch("./assets/dataJSON/account.JSON")
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            // Kiểm tra tên tài khoản
+            let inputNameAcc = document.querySelector(
+              ".register-form .name-account"
+            );
+            let nameAccountValue = inputNameAcc.value;
+            let found = false;
+            for (let i = 0; i < data.length; i++) {
+              const user = data[i];
+              if (user.nameAccount === nameAccountValue) {
+                found = true;
+                break; // Nếu tìm thấy thì thoát khỏi vòng lặp
+              }
+            }
+            if (found) {
+              inputNameAcc.classList.add("red-error");
+              alert("Tên tài khoản đã tồn tại");
+            } else {
+              let inputPassword = document.querySelector(
+                ".register-form .pass-account"
+              );
+              let password = inputPassword.value;
 
-        alert("Tài khoản đã được lưu, bạn sẽ quay về trang đăng nhập");
-        event.target.parentElement.classList.add("hide-form");
-        var loginForm = document.querySelector(".login-form");
-        loginForm.classList.remove("hide-form");
+              let confirmPass = document.querySelector(".confirm-pass");
+              let confirm = confirmPass.value;
+
+              if (password !== confirm) {
+                inputPassword.classList.add("red-error");
+                confirmPass.classList.add("red-error");
+                alert("Mật khẩu xác nhận không chính xác");
+              } else {
+                // Viết api gửi yêu cầu POST đến back end
+                // ...
+                // fetch("Địa chỉ nhận yêu cầu", {
+                //   method: "POST",
+                //   headers: {
+                //     "Content-Type": "application/json",
+                //   },
+                //   body: JSON.stringify({ nameAccountValue, password }),
+                // })
+                //   .then(function (response) {
+                //     return response.json(); // chuyển phản hồi thành định dạng json
+                //   })
+                //   .then(function () {
+                //     alert(
+                //       "Tài khoản đã được lưu, bạn sẽ quay về trang đăng nhập"
+                //     );
+                //     event.target.parentElement.classList.add("hide-form");
+                //     var loginForm = document.querySelector(".login-form");
+                //     loginForm.classList.remove("hide-form");
+                //   });
+
+                alert("Tài khoản đã được lưu, bạn sẽ quay về trang đăng nhập");
+                event.target.parentElement.classList.add("hide-form");
+                var loginForm = document.querySelector(".login-form");
+                loginForm.classList.remove("hide-form");
+              }
+            }
+          })
+          .catch(function (error) {
+            console.error("Loading JSON:", error);
+          });
       }
     });
   });
@@ -83,13 +144,42 @@ function buttonSavePass() {
   });
 }
 
+// Nút đăng nhập
 function buttonLogin() {
   var btnActive = document.querySelector(".login");
   btnActive.onclick = function () {
     // Thao tác lấy tên đăng nhập và mật khẩu để kiểm tra tính đúng sai
-    // ...
+    var nameAccount = document.querySelector(".name-account").value;
+    var password = document.querySelector(".pass-account").value;
 
-    window.location.href = "./home.html";
+    // Nhận data
+    fetch("./assets/dataJSON/account.JSON")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        // Kiểm tra tên tài khoản
+        let found = false;
+        for (let i = 0; i < data.length; i++) {
+          const user = data[i];
+          if (user.nameAccount === nameAccount && user.password === password) {
+            found = true;
+            break; // Nếu tìm thấy thì thoát khỏi vòng lặp
+          }
+        }
+        if (found) {
+          window.location.href = "./home.html";
+        } else {
+          var inputNameAcc = document.querySelector(".name-account");
+          var inputPass = document.querySelector(".pass-account");
+          inputNameAcc.classList.add("red-error");
+          inputPass.classList.add("red-error");
+          alert("Tên đăng nhập hoặc mật khẩu sai");
+        }
+      })
+      .catch(function (error) {
+        console.error("Loading JSON:", error);
+      });
   };
 }
 

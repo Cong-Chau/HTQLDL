@@ -131,3 +131,7 @@ body {
 .hide-form {
   display: none;
 }
+/* Màu đỏ khung input nếu sai */
+.red-error {
+  border: solid 1.5px red !important;
+}
