@@ -5,7 +5,6 @@
 }
 
 .clear {
-  /* Giải quyết vấn đề con là float thì cha k ôm đc con */
   clear: both;
 }
 html {
@@ -15,12 +14,26 @@ html {
 body {
   font-family: Arial, sans-serif;
   height: 100%;
+  background-color: rgb(236, 236, 236);
 }
 
 .logo {
   width: 50px;
   height: 50px;
 }
+
+.page-focus {
+  background-color: rgb(255, 198, 151);
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  width: 97%;
+}
+
+.hide-form {
+  display: none;
+}
+
+/* Riêng */
 
 #header {
   position: fixed;
@@ -37,65 +50,129 @@ body {
   align-items: center;
   list-style-type: none;
 }
+
 #header li .name-web {
   font-size: 25px;
   color: white;
+  font-weight: bold;
 }
+
 #header li .account {
   color: black;
-  font-size: 15px;
+  font-size: 17px;
 }
+
 #header .logout {
   color: white;
-  font-size: 15px;
+  font-size: 14px;
   text-decoration: underline;
 }
+
 #header .right {
   margin-left: auto;
 }
+
 #container {
   position: relative;
-  margin-top: 46px;
+  margin-top: 60px;
   display: flex;
   height: 100%;
 }
+
 #container #sidebar {
+  z-index: 1;
+  position: fixed;
+  background-color: white;
   width: 15%;
-  border-right: 1px solid rgb(185, 181, 181);
+  height: 100vh;
+  box-shadow: 2px 2px 2px 2px rgb(184, 184, 184);
 }
+
 #sidebar i {
   margin-right: 5px;
 }
+
 #container #sidebar li {
-  margin: 10% 0 10% 0px;
-  font-size: 20px;
+  height: auto;
+  min-height: 53px;
+  position: relative;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: bold;
   padding: 15px 10px;
+  overflow: hidden;
+  transition: color 0.1s;
 }
-#container #sidebar li:first-child {
-  background-color: #ff914d;
+
+#container #sidebar li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background-color: rgb(255, 198, 151);
+  transition: width 0.25s ease;
+  z-index: -1;
 }
+
 #container #sidebar li:hover {
-  background-color: #ff914d;
+  cursor: pointer;
 }
-#container #content {
+
+#container #sidebar li:hover::before {
+  width: 97%;
+}
+
+.ti-home,
+.ti-search,
+.ti-save,
+.ti-share,
+.ti-money,
+.ti-image,
+.ti-settings {
+  font-size: 1.2em;
+  text-shadow: 0.2px 0 0 #000, -0.2px 0 0 #000, 0 0.2px 0 #000, 0 -0.2px 0 #000,
+    0.2px 0.5px 0 #000, -0.2px -0.2px 0 #000, 0.2px -0.2px 0 #000,
+    -0.2px 0.2px 0 #000;
+  color: #000;
+}
+
+#container #home-content {
+  position: absolute;
+  right: 0;
   width: 85%;
+  height: 100vh;
+  padding-bottom: 50px;
 }
-#container #content .home-page {
-  width: 100%;
+
+#container #home-content .home-page-header {
   height: 15%;
-  font-size: 45px;
+  font-size: 55px;
+  font-weight: bold;
   color: #ff914d;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: aliceblue;
+  background-color: white;
+  margin: 23px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px rgb(184, 184, 184);
 }
-#container #content .picture {
-  width: 100%; /* Ảnh sẽ chiếm toàn bộ chiều rộng của div */
-  height: 85%; /* Chiều cao tự động theo tỷ lệ của ảnh */
 
-  background-image: url("https://vudigital.co/wp-content/uploads/2023/09/dai-ly-phan-phoi-la-gi-5-loai-hinh-dai-ly-pho-bien.webp");
-  background-size: cover; /* Đảm bảo ảnh phủ đầy div */
+#container #home-content .home-picture {
+  height: calc(100% - 50px);
+  background-image: url("/assets/img/image/poster.jpg");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin: 25px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px rgb(184, 184, 184);
+}
+
+#container #home-content .space {
+  height: 25px;
 }
