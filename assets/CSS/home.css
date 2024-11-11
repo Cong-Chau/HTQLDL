@@ -164,7 +164,7 @@ body {
 
 #container #home-content .home-picture {
   height: calc(100% - 50px);
-  background-image: url("/assets/img/image/poster.jpg");
+  background-image: url("https://github.com/Cong-Chau/HTQLDL/blob/main/assets/img/image/poster.jpg?raw=true");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
